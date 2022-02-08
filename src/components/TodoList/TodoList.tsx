@@ -13,14 +13,14 @@ const TodoList = ({todos}: TodoListProps) => {
         const { id, ...itemProps} = todo
 
         return (
-            <li key={id}>
+            <li className="list-group-item" key={id}>
                 <TodoListItem {...itemProps} />
             </li>
         )
     })
 
     return (
-        <ul>
+        <ul className="list-group todo-list">
             {elements}
         </ul>
     )
