@@ -1,6 +1,9 @@
 export interface ITodo {
     id?: number;
     label: string;
-    completed: boolean;
+    done: boolean;
     important: boolean;
+    onDeleted?: () => void
+    onToggleDone?: () => void
+    onToggleImportant?: () => void
 }

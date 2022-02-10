@@ -1,16 +1,45 @@
-import React, { Component } from "react";
+import React from "react";
 import './StatusFilter.css'
 
-class StatusFilter extends Component {
-    render(): React.ReactNode {
+interface StatusFilterProps {
+    onChangeFilter: (e: React.MouseEvent<HTMLDivElement>) => void;
+    filter: string;
+}
+
+interface buttonType {
+    name: string;
+    label: string;
+}
+
+const StatusFilter = (props: StatusFilterProps) => {
+
+    const { onChangeFilter, filter } = props
+
+    const buttonsList: buttonType[] = [
+        {name: 'all', label: 'All'},
+        {name: 'active', label: 'Active'},
+        {name: 'done', label: 'Done'},
+    ]
+
+    const buttons = buttonsList.map(({ name, label }: buttonType): React.ReactElement => {
+        const isActive = filter === name;
+        const clazz = isActive ? 'btn-info' : 'btn-outline-secondary'
         return (
-            <div className="btn-group">
-                <button className="btn btn-info" type="button">All</button>
-                <button className="btn btn-outline-secondary" type="button">Active</button>
-                <button className="btn btn-outline-secondary" type="button">Done</button>
-            </div>
+            <button 
+                className={`btn ${clazz}`}
+                type='button'
+                name={name}
+                key={name} >
+                {label}
+            </button>
         )
-    }
+    })
+
+    return (
+        <div className="btn-group" onClick={onChangeFilter}>
+            {buttons}
+        </div>
+    )
 }
 
 export default StatusFilter
