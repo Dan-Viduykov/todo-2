@@ -16,7 +16,9 @@ export const App = () => {
     const [filter, setFilter] = useState<string>('all');
     const [maxId, setMaxId] = useState<number>(100);
 
-    useEffect((): void => addItem('test'), [])
+    useEffect((): void => {
+        addItem('test')
+    }, [])
 
     function createItem (label: string): ITodo  {
         setMaxId((id) => id + 1)
