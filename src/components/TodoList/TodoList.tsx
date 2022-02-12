@@ -12,7 +12,7 @@ interface TodoListProps {
     search: string
 }
 
-const TodoList = (props: TodoListProps) => {
+export const TodoList = (props: TodoListProps) => {
     const { todos, onDeleted, onToggleImportant, onToggleDone, filterType, search } = props
 
     const filterTypeTodos = (arr: ITodo[], filter: string): ITodo[] => {
@@ -55,6 +55,4 @@ const TodoList = (props: TodoListProps) => {
             {elements}
         </ul>
     )
-}
-
-export default TodoList;
+} 

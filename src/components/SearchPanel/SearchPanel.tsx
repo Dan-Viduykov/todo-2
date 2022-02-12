@@ -6,7 +6,7 @@ interface SearchPanelProps {
     onChangeSearch: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const SearchPanel = (props: SearchPanelProps) => {
+export const SearchPanel = (props: SearchPanelProps) => {
     const { value, onChangeSearch } = props
     
     return <input  
@@ -16,5 +16,3 @@ const SearchPanel = (props: SearchPanelProps) => {
                 onChange={onChangeSearch}
                 value={value} />
 }
-
-export default SearchPanel;

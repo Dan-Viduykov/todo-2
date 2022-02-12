@@ -2,7 +2,7 @@ import React from "react";
 import { ITodo } from "../../types/data";
 import './TodoListItem.css'
 
-const TodoListItem = (props: ITodo) => {
+export const TodoListItem = (props: ITodo) => {
 
     const { label, done, important, onDeleted, onToggleDone, onToggleImportant } = props;
 
@@ -34,5 +34,3 @@ const TodoListItem = (props: ITodo) => {
         </span>
     )
 }
-
-export default TodoListItem

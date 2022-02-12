@@ -11,7 +11,7 @@ interface buttonType {
     label: string;
 }
 
-const StatusFilter = (props: StatusFilterProps) => {
+export const StatusFilter = (props: StatusFilterProps) => {
 
     const { onChangeFilter, filter } = props
 
@@ -41,5 +41,3 @@ const StatusFilter = (props: StatusFilterProps) => {
         </div>
     )
 }
-
-export default StatusFilter

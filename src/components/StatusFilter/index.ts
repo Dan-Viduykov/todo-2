@@ -1,3 +1,3 @@
-import StatusFilter from "./StatusFilter";
+import { StatusFilter } from "./StatusFilter";
 
 export default StatusFilter

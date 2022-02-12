@@ -1,57 +1,36 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import './ItemAddForm.css'
 
 interface itemAddFormProps {
     addItem: (label: string) => void;
 }
 
-interface itemAddFormState {
-    value: string;
-}
+export const ItemAddForm = (props: itemAddFormProps) => {
 
-class ItemAddForm extends Component <itemAddFormProps, itemAddFormState> {
+    const [ value, setValue ] = useState<string>('');
 
-    state = {
-        value: '',
-    }
-
-    onAddInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-            this.setState({
-                value: e.target.value
-            })
-    }
-
-    onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         
-        if (this.state.value) {
-            this.props.addItem(this.state.value.trim())
-            this.setState({
-                value: ''
-            })
+        if (value) {
+            props.addItem(value.trim())
+            setValue('')
         }
     }
-
-    render() {
-        const { value } = this.state
         
-        return (
-            <form className="item-add-form d-flex" onSubmit={this.onSubmit} >
-                <input
-                    className="form-control"
-                    type='text'
-                    value={value}
-                    placeholder='what needs to be done'
-                    onChange={this.onAddInputChange} />
-                <button
-                    className="btn btn-outline-secondary"
-                    type='submit' >
-                    Add
-                </button>
-            </form>
-        )    
-    }
-
+    return (
+        <form className="item-add-form d-flex" onSubmit={onSubmit} >
+            <input
+                className="form-control"
+                type='text'
+                value={value}
+                placeholder='what needs to be done'
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)} />
+            <button
+                className="btn btn-outline-secondary"
+                type='submit' >
+                Add
+            </button>
+        </form>
+    )    
 }
-
-export default ItemAddForm

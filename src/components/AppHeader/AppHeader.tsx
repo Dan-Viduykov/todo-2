@@ -6,7 +6,7 @@ interface HeaderProps {
     done: number;
 }
 
-const AppHeader = ({todo, done}: HeaderProps) => {
+export const AppHeader = ({todo, done}: HeaderProps) => {
     return (
         <div className="app-header d-flex">
             <h1>Todo List</h1>
@@ -14,5 +14,3 @@ const AppHeader = ({todo, done}: HeaderProps) => {
         </div>
     )
 }
-
-export default AppHeader;
