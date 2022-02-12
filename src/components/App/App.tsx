@@ -18,7 +18,7 @@ export const App = () => {
 
     useEffect((): void => addItem('test'), [])
 
-    function createItem (label: string): ITodo {
+    function createItem (label: string): ITodo  {
         setMaxId((id) => id + 1)
 
         return {
@@ -40,8 +40,10 @@ export const App = () => {
     }
 
     const addItem = (label: string): void => {
-        const newTodo: ITodo = createItem(label)
-        setTodoData([...todoData, newTodo])
+        if (label !== '') {
+            const newTodo: ITodo = createItem(label)
+            setTodoData([...todoData, newTodo])
+        }
     }
 
     function toggleProperty (arr: ITodo[], id: number | undefined, propName: keyof ITodo): ITodo[] {
